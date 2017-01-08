@@ -18,5 +18,5 @@ who is my [academic advisor](role)?
 who is my [personal tutor](role)?
 * request/advisor
 
-< Your [academic advisor](role) is [Joe Bloggs](person).
+< Your [personal tutor](role) is [Joe Bloggs](person).
 * provide/advisor
