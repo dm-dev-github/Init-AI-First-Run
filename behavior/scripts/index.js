@@ -75,7 +75,7 @@ exports.handle = function (client) {
 			};
 
 
-			client.addResponse('app:response:name:provide_advisor', tutorData);
+			client.addResponse('provide_advisor', tutorData);
 			client.done();
 		},
 	});
@@ -100,7 +100,7 @@ exports.handle = function (client) {
 				role: "testrole",
 			};
 
-			client.addResponse('app:response:name:provide_advisor', tutorData);
+			client.addResponse('provide_advisor', tutorData);
 			client.done();
 		},
 	});
@@ -108,7 +108,7 @@ exports.handle = function (client) {
 
 
 	client.runFlow({
-		classifications: {},
+		classifications: {'request_advisor': 'getAdvisor'},
 		streams: {
 			main: 'getAdivsor',
 			hi: [sayHello],
