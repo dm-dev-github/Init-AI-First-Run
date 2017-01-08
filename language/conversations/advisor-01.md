@@ -1,6 +1,6 @@
 who is my [academic advisor](role)?
-* request/advisor
+* request_advisor
 
 < your [academic advisor](role) is [Joe Bloggs](person)
-* provide/advisor
+* provide_advisor
 
