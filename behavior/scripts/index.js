@@ -42,7 +42,13 @@ exports.handle = function (client) {
 
 	// was collect city
 	var collectRole = client.createStep({
+
+
 		satisfied: function () {
+
+			console.log("collectRole / satisfied");
+
+
 			return Boolean(client.getConversationState().requstedRole);
 		},
 
@@ -59,6 +65,10 @@ exports.handle = function (client) {
 		},
 
 		prompt: function () {
+
+			console.log("collectRole / prompt");
+
+
 			client.addResponse('prompt/weather_city');
 			client.done();
 		},
@@ -68,11 +78,17 @@ exports.handle = function (client) {
 	// was provideWeather
 	var provideAdvisor = client.createStep({
 		satisfied: function () {
+
+			console.log("provideAdvisor / satisfied");
+
+
 			return false;
 		},
 
 		prompt: function () {
 			// Need to provide weather
+			console.log("provideAdvisor / prompt");
+
 			var tutorData = {
 				person: "DM1",
 				role: client.getConversationState().requstedRole.value,
