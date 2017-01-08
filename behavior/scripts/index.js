@@ -3,6 +3,7 @@ exports.handle = function (client) {
 
 
 
+/*
 
 
 	// Create steps
@@ -36,6 +37,7 @@ exports.handle = function (client) {
 			client.done();
 		}
 	});
+*/
 
 
 	// was collect city
@@ -45,11 +47,11 @@ exports.handle = function (client) {
 		},
 
 		extractInfo: function () {
-			var role = client.getFirstEntityWithRole(client.getMessagePart(), 'role');
+			var requstedRole = client.getFirstEntityWithRole(client.getMessagePart(), 'role');
 
-			if (role) {
+			if (requstedRole) {
 				client.updateConversationState({
-					requstedRole: role,
+					role: requstedRole,
 				});
 
 				console.log('User wants the person who is their', role.value);
@@ -73,7 +75,7 @@ exports.handle = function (client) {
 			// Need to provide weather
 			var tutorData = {
 				person: "DM1",
-				requestedRole: client.getConversationState().role.value,
+				role: client.getConversationState().requesterRole.value,
 			};
 
 			client.addResponse('provide/advisor', tutorData);
