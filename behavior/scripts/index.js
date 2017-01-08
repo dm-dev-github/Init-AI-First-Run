@@ -53,6 +53,7 @@ exports.handle = function (client) {
 		},
 
 		extractInfo: function () {
+			
 			var role = client.getFirstEntityWithRole(client.getMessagePart(), 'role');
 
 			if (role) {
@@ -69,7 +70,7 @@ exports.handle = function (client) {
 			console.log("collectRole / prompt");
 
 
-			client.addResponse('prompt/weather_city');
+			client.addResponse('provide/advisor');
 			client.done();
 		},
 	});
@@ -95,8 +96,6 @@ exports.handle = function (client) {
 			};
 
 			client.addResponse('provide/advisor', tutorData);
-
-
 			client.done();
 		},
 	});
