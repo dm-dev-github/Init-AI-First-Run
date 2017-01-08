@@ -68,9 +68,14 @@ exports.handle = function (client) {
 		prompt: function () {
 
 			console.log("This means it can't identidy a role");
+			
+			var tutorData = {
+				person: "wrong",
+				role: "wrong again"
+			};
 
 
-			client.addResponse('provide_advisor');
+			client.addResponse('provide_advisor', tutorData);
 			client.done();
 		},
 	});
