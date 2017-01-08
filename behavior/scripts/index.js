@@ -47,11 +47,11 @@ exports.handle = function (client) {
 		},
 
 		extractInfo: function () {
-			var requstedRole = client.getFirstEntityWithRole(client.getMessagePart(), 'role');
+			var role = client.getFirstEntityWithRole(client.getMessagePart(), 'role');
 
 			if (requstedRole) {
 				client.updateConversationState({
-					role: requstedRole,
+					requstedRole: role,
 				});
 
 				console.log('User wants the person who is their', role.value);
@@ -75,7 +75,7 @@ exports.handle = function (client) {
 			// Need to provide weather
 			var tutorData = {
 				person: "DM1",
-				role: client.getConversationState().requesterRole.value,
+				role: client.getConversationState().requstedRole.value,
 			};
 
 			client.addResponse('provide/advisor', tutorData);
