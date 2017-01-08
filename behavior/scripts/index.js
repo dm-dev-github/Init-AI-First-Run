@@ -67,10 +67,10 @@ exports.handle = function (client) {
 
 		prompt: function () {
 
-			console.log("collectRole / prompt");
+			console.log("This means it can't identidy a role");
 
 
-			client.addResponse('provide/advisor');
+			client.addResponse('provide_advisor');
 			client.done();
 		},
 	});
@@ -88,14 +88,14 @@ exports.handle = function (client) {
 
 		prompt: function () {
 			// Need to provide weather
-			console.log("provideAdvisor / prompt");
+			console.log("Return data to provide_advisor");
 
 			var tutorData = {
 				person: "DM1",
 				role: "testrole",
 			};
 
-			client.addResponse('provide/advisor', tutorData);
+			client.addResponse('provide_advisor', tutorData);
 			client.done();
 		},
 	});
