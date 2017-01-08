@@ -91,7 +91,7 @@ exports.handle = function (client) {
 
 			var tutorData = {
 				person: "DM1",
-				role: client.getConversationState().requstedRole.value,
+				role: "testrole",
 			};
 
 			client.addResponse('provide/advisor', tutorData);
@@ -129,3 +129,16 @@ exports.handle = function (client) {
 	});
 */
 };
+
+
+
+
+
+
+/*
+
+			var tutorData = {
+				person: "DM1",
+				role: client.getConversationState().requstedRole.value,
+			};
+*/
