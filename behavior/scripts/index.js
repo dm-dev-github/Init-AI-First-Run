@@ -3,7 +3,7 @@ exports.handle = function (client) {
 
 
 
-/*
+
 
 
 	// Create steps
@@ -37,7 +37,7 @@ exports.handle = function (client) {
 			client.done();
 		}
 	});
-*/
+
 
 
 	// was collect city
@@ -112,6 +112,7 @@ exports.handle = function (client) {
 		}
 	});
 
+/*
 
 	client.runFlow({
 		classifications: {
@@ -126,4 +127,5 @@ exports.handle = function (client) {
 			end: [untrained],
 		},
 	});
+*/
 };
