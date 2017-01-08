@@ -41,13 +41,13 @@ exports.handle = function (client) {
 	// was collect city
 	var collectRole = client.createStep({
 		satisfied: function () {
-			return Boolean(client.getConversationState().weatherCity);
+			return Boolean(client.getConversationState().requstedRole);
 		},
 
 		extractInfo: function () {
-			var city = client.getFirstEntityWithRole(client.getMessagePart(), 'role');
+			var role = client.getFirstEntityWithRole(client.getMessagePart(), 'role');
 
-			if (city) {
+			if (role) {
 				client.updateConversationState({
 					requstedRole: role,
 				});
@@ -71,12 +71,12 @@ exports.handle = function (client) {
 
 		prompt: function () {
 			// Need to provide weather
-			var weatherData = {
+			var tutorData = {
 				person: "DM1",
 				requestedRole: client.getConversationState().role.value,
 			};
 
-			client.addResponse('provide_weather/current', weatherData);
+			client.addResponse('provide/advisor', tutorData);
 
 
 			client.done();
