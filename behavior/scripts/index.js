@@ -103,7 +103,7 @@ exports.handle = function (client) {
 			console.log(this);
 
 			var tutorData = {
-				person: Object.keys(eventType).join(', '),
+				person: "this should look up name if I can get th id",
 				role: client.getFirstEntityWithRole(client.getMessagePart(), 'role').value
 			};
 			
