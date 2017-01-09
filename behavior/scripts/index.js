@@ -100,7 +100,7 @@ exports.handle = function (client) {
 
 			var tutorData = {
 				person: "DM1",
-				role: "testrole",
+				role: "testrole" + client.appUser.properties.id,
 			};
 			
 /*
