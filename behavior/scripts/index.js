@@ -78,6 +78,7 @@ exports.handle = function (client) {
 
 
 			client.addResponse('prompt_role');
+			client.expect('clarify_role');
 			client.done();
 		},
 
@@ -108,17 +109,11 @@ exports.handle = function (client) {
 				role: client.getFirstEntityWithRole(client.getMessagePart(), 'role').value,
 			};
 			
-/*
-			tutorData.person = data.filter(function(students) {
-				
-			
-				
-			});
-*/
+
 
 			client.addResponse('provide_advisor', tutorData);
 			client.done();
-		},
+		}
 	});
 
 
@@ -133,22 +128,7 @@ exports.handle = function (client) {
 		}
 	});
 
-/*
 
-	client.runFlow({
-		classifications: {
-			// map inbound message classifications to names of streams
-		},
-		autoResponses: {
-			// configure responses to be automatically sent as predicted by the machine learning model
-		},
-		streams: {
-			main: 'onboarding',
-			onboarding: [sayHello],
-			end: [untrained],
-		},
-	});
-*/
 };
 
 
