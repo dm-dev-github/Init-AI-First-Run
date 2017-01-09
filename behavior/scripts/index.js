@@ -63,7 +63,7 @@ exports.handle = function (client) {
 
 			}
 				console.log('User wants the person who is their', role.value);
-				console.log(client);
+				console.log(this);
 		},
 
 
@@ -101,7 +101,7 @@ exports.handle = function (client) {
 
 			var tutorData = {
 				person: "DM1",
-				role: client.getFirstEntityWithRole(client.getMessagePart(), 'role'),
+				role: client.getFirstEntityWithRole(client.getMessagePart(), 'role').value,
 			};
 			
 /*
