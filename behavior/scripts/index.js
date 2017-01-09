@@ -103,7 +103,7 @@ exports.handle = function (client) {
 			console.log(this);
 
 			var tutorData = {
-				person: "DM1 " + data.paramaters.id,
+				person: "DM1 ",
 				role: client.getFirstEntityWithRole(client.getMessagePart(), 'role').value,
 			};
 			
@@ -127,7 +127,7 @@ exports.handle = function (client) {
 			'request_advisor': 'getAdvisor'
 		},
 		streams: {
-			hi: [sayHello],
+			main: 'getAdvisor',
 			getAdvisor: [collectRole, provideAdvisor]
 		}
 	});
