@@ -60,6 +60,8 @@ exports.handle = function (client) {
 				client.updateConversationState({
 					requstedRole: role,
 				});
+				
+				client.addTextResponse("I see you are interested in your " + role);
 
 			}
 		},
