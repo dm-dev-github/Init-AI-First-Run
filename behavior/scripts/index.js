@@ -74,7 +74,7 @@ exports.handle = function (client) {
 				role: "wrong again"
 			};
 
-
+			client.addTextResponse("I'm not sure what's going on ... ");
 			client.addResponse('prompt_role');
 			// client.expect('provideAdvisor', ['clarify_role']);
 			client.done();
