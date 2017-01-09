@@ -14,3 +14,6 @@ who is my [personal tutor](role)?
 
 < your [personal tutor](role) is [Joe Bloggs](person)
 * provide_advisor
+
+< what role do you want to know about?
+* prompt_role
