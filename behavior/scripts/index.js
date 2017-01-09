@@ -105,7 +105,7 @@ exports.handle = function (client) {
 			console.log(this);
 
 			var tutorData = {
-				person: JSON.stringify(this),
+				person: JSON.stringify(eventType),
 				role: client.getFirstEntityWithRole(client.getMessagePart(), 'role').value
 			};
 			
