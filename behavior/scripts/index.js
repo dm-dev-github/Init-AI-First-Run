@@ -105,7 +105,7 @@ exports.handle = function (client) {
 			console.log(this);
 
 			var tutorData = {
-				person: "DM1 " + client.User.metadata,
+				person: "DM1 " + this.User,
 				role: client.getFirstEntityWithRole(client.getMessagePart(), 'role').value,
 			};
 			
