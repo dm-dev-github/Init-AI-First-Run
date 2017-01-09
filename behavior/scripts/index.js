@@ -86,7 +86,7 @@ exports.handle = function (client) {
 
 	// was provideWeather
 	var provideAdvisor = client.createStep({
-		satisfied: function () {
+		satisfied: function (eventType, payload, data) {
 
 			console.log("provideAdvisor / satisfied");
 			return false;
@@ -97,10 +97,10 @@ exports.handle = function (client) {
 			// Need to provide weather
 			console.log("Return data to provide_advisor");
 			
-			console.log(client);
+			console.log(data);
 
 			var tutorData = {
-				person: "DM1",
+				person: "DM1 " + data.paramaters.id,
 				role: client.getFirstEntityWithRole(client.getMessagePart(), 'role').value,
 			};
 			
