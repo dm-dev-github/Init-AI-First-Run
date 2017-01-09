@@ -108,9 +108,7 @@ exports.handle = function (client) {
 				person: "DM1 ",
 				role: client.getFirstEntityWithRole(client.getMessagePart(), 'role').value,
 				this: Object.keys(this).join(', '),
-				eventType: eventType,
-				payload: payload,
-				data: Object.keys(data).join(', ')
+				eventType: eventType
 			};
 			
 
