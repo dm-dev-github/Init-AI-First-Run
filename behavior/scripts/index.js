@@ -53,7 +53,7 @@ exports.handle = function (client) {
 		},
 
 		extractInfo: function () {
-			
+
 			var role = client.getFirstEntityWithRole(client.getMessagePart(), 'role');
 
 			if (role) {
@@ -88,19 +88,28 @@ exports.handle = function (client) {
 		satisfied: function () {
 
 			console.log("provideAdvisor / satisfied");
-
-
 			return false;
 		},
+
 
 		prompt: function () {
 			// Need to provide weather
 			console.log("Return data to provide_advisor");
+			
+			console.log(client);
 
 			var tutorData = {
 				person: "DM1",
 				role: "testrole",
 			};
+			
+/*
+			tutorData.person = data.filter(function(students) {
+				
+			
+				
+			});
+*/
 
 			client.addResponse('provide_advisor', tutorData);
 			client.done();
@@ -110,7 +119,9 @@ exports.handle = function (client) {
 
 
 	client.runFlow({
-		classifications: {'request_advisor': 'getAdvisor'},
+		classifications: {
+			'request_advisor': 'getAdvisor'
+		},
 		streams: {
 			main: 'getAdivsor',
 			hi: [sayHello],
@@ -148,3 +159,10 @@ exports.handle = function (client) {
 				role: client.getConversationState().requstedRole.value,
 			};
 */
+
+
+
+var data = [{
+	"id": "auth0|5815cb10344073a30129f746",
+	"advisor": "Mark Smith"
+}];
