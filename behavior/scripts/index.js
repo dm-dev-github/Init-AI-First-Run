@@ -96,14 +96,9 @@ exports.handle = function (client) {
 			// Need to provide weather
 			console.log("Return data to provide_advisor");
 			
-			console.log("-----------------------------------");
-			console.log(eventType);
-			console.log(payload);
-			console.log(data);
-			console.log(this);
 
 			var tutorData = {
-				person: "this should look up name if I can get th id",
+				person: "Joe Bloggs",
 				role: client.getFirstEntityWithRole(client.getMessagePart(), 'role').value
 			};
 			
@@ -122,6 +117,11 @@ exports.handle = function (client) {
 	
 	var handleEvent = function(eventType, payload) {
     client.addTextResponse('Received event of type: ' + eventType);
+    
+    var payloadText = JSON.stringify(payload);
+    
+    client.addTextResponse('payload ' + payloadText);
+    
     client.done();
   };
 
