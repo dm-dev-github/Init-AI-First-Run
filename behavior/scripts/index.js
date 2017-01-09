@@ -78,7 +78,7 @@ exports.handle = function (client) {
 
 
 			client.addResponse('prompt_role');
-			client.expect('clarify_role');
+			client.expect('provideAdvisor', ['clarify_role']);
 			client.done();
 		},
 
@@ -124,7 +124,8 @@ exports.handle = function (client) {
 		},
 		streams: {
 			main: 'getAdvisor',
-			getAdvisor: [collectRole, provideAdvisor]
+			getAdvisor: [collectRole, provideAdvisor],
+			provideAdvisor: provideAdvisor
 		}
 	});
 
