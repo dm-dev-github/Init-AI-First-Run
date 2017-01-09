@@ -62,6 +62,7 @@ exports.handle = function (client) {
 				});
 
 				console.log('User wants the person who is their', role.value);
+				console.log(client);
 			}
 		},
 
@@ -100,7 +101,7 @@ exports.handle = function (client) {
 
 			var tutorData = {
 				person: "DM1",
-				role: "testrole" + client.appUser.properties.id,
+				role: "testrole",
 			};
 			
 /*
