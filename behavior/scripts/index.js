@@ -62,8 +62,6 @@ exports.handle = function (client) {
 				});
 
 			}
-				console.log('User wants the person who is their', role.value);
-				console.log(this);
 		},
 
 
