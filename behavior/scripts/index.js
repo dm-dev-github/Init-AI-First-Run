@@ -118,10 +118,18 @@ exports.handle = function (client) {
 			client.done();
 		}
 	});
-
+	
+	
+	var handleEvent = function(eventType, payload) {
+    client.addTextResponse('Received event of type: ' + eventType);
+    client.done();
+  };
 
 
 	client.runFlow({
+		eventHandlers: {
+			'*': handleEvent
+		},
 		classifications: {
 			'request_advisor': 'getAdvisor'
 		},
