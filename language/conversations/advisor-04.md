@@ -17,3 +17,9 @@ who is my [personal tutor](role)?
 
 < what role do you want to know about?
 * prompt_role
+
+[personal tutor](role)
+* clarify_role
+
+[academic advisor](role)
+* clarify_role
