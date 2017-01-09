@@ -86,14 +86,14 @@ exports.handle = function (client) {
 
 	// was provideWeather
 	var provideAdvisor = client.createStep({
-		satisfied: function (eventType, payload, data) {
+		satisfied: function () {
 
 			console.log("provideAdvisor / satisfied");
 			return false;
 		},
 
 
-		prompt: function () {
+		prompt: function (eventType, payload, data) {
 			// Need to provide weather
 			console.log("Return data to provide_advisor");
 			
@@ -162,7 +162,7 @@ exports.handle = function (client) {
 
 
 
-var data = [{
+var people = [{
 	"id": "auth0|5815cb10344073a30129f746",
 	"advisor": "Mark Smith"
 }];
