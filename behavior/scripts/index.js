@@ -61,7 +61,8 @@ exports.handle = function (client) {
 					requstedRole: role,
 				});
 				
-				client.addTextResponse("I see you are interested in your " + role);
+				client.addTextResponse("I see you are interested in your " + role.value);
+				client.addTextResponse("Let me check ...");
 
 			}
 		},
