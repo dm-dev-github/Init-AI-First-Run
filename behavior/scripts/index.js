@@ -124,9 +124,8 @@ exports.handle = function (client) {
 			'request_advisor': 'getAdvisor'
 		},
 		streams: {
-			main: 'getAdivsor',
 			hi: [sayHello],
-			getAdvisor: [collectRole, provideAdvisor],
+			getAdvisor: [collectRole, provideAdvisor]
 		}
 	});
 
