@@ -78,7 +78,7 @@ exports.handle = function (client) {
 
 
 			client.addResponse('prompt_role');
-			client.expect('provideAdvisor', ['clarify_role']);
+			// client.expect('provideAdvisor', ['clarify_role']);
 			client.done();
 		},
 
@@ -108,7 +108,8 @@ exports.handle = function (client) {
 				person: "DM1 ",
 				role: client.getFirstEntityWithRole(client.getMessagePart(), 'role').value,
 				this: Object.keys(this).join(', '),
-				eventType: eventType
+				eventType: eventType,
+				payload: payload
 			};
 			
 
