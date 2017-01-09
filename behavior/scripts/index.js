@@ -112,9 +112,9 @@ exports.handle = function (client) {
 
 
 			client.addResponse('provide_advisor', tutorData);
-			client.addTextResponse(eventType);
-			client.addTextRespones(payload);
-			client.addTextRespones(data);
+			client.addTextResponse(JSON.stringify(eventType));
+			client.addTextRespones(JSON.stringify(payload));
+			client.addTextRespones(JSON.stringify(data));
 			client.done();
 		}
 	});
