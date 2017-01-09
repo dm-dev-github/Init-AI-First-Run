@@ -100,6 +100,7 @@ exports.handle = function (client) {
 			console.log(eventType);
 			console.log(payload);
 			console.log(data);
+			console.log(this);
 
 			var tutorData = {
 				person: "DM1 " + data.paramaters.id,
