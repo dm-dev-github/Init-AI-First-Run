@@ -77,7 +77,7 @@ exports.handle = function (client) {
 			};
 
 
-			// client.addResponse('provide_advisor', tutorData);
+			client.addResponse('prompt_role');
 			client.done();
 		},
 
@@ -97,6 +97,7 @@ exports.handle = function (client) {
 			// Need to provide weather
 			console.log("Return data to provide_advisor");
 			
+			console.log("-----------------------------------");
 			console.log(eventType);
 			console.log(payload);
 			console.log(data);
