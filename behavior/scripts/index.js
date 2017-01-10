@@ -105,6 +105,12 @@ exports.handle = function (client) {
 				role: client.getFirstEntityWithRole(client.getMessagePart(), 'role').value
 			};
 			
+			
+			client.getUsers(function(users) {
+				
+				console.log(users);
+				
+			});
 
 
 			client.addResponse('provide_advisor', tutorData);
