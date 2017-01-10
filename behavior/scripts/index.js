@@ -64,7 +64,6 @@ exports.handle = function (client) {
 
 		extractInfo: function () {
 
-			var role = client.getFirstEntityWithRole(client.getMessagePart(), 'role');
 
 			var messagePart = client.getMessagePart();
 
@@ -75,7 +74,7 @@ exports.handle = function (client) {
 			var initId = messagePart.sender.id;
 			var smoochId = messagePart.sender.remote_id;
 
-			client.addTextResponse(initId + " " + smoochId);
+			client.addTextResponse(initId + " | " + smoochId);
 
 
 			smoochAPI.url = 'https://api.smooch.io/v1/appusers/' + smoochId;
@@ -103,6 +102,10 @@ exports.handle = function (client) {
 						'client_id': client_id
 					}
 				});
+				
+				client.resetUser(initId);
+
+				var role = client.getFirstEntityWithRole(client.getMessagePart(), 'role');
 
 				if (role) {
 					client.updateConversationState({
