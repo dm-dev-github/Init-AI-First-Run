@@ -110,19 +110,14 @@ exports.handle = function (client) {
 			};
 			
 			
-			client.getUsers(function(users) {
-				
-				users.forEach(function(user) {
-					
-					console.log(user);
-					
-				});
+			var users = client.getUsers();
+			
+			console.log(JSON.stringify(users));
 				
 			client.addResponse('provide_advisor', tutorData);
 			client.done();
 
 
-			});
 
 
 		}
