@@ -108,18 +108,19 @@ exports.handle = function (client) {
 			
 			client.getUsers(function(users) {
 				
-				console.log(users);
+				users.forEach(function(user) {
+					
+					console.log(user);
+					
+				});
 				
+			client.addResponse('provide_advisor', tutorData);
+			client.done();
+
+
 			});
 
 
-			client.addResponse('provide_advisor', tutorData);
-/*
-			client.addTextResponse(JSON.stringify(eventType));
-			client.addTextRespones(JSON.stringify(payload));
-			client.addTextRespones(JSON.stringify(data));
-*/
-			client.done();
 		}
 	});
 	
