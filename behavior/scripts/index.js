@@ -85,30 +85,23 @@ exports.handle = function (client) {
 				// console.log(error);
 				// console.log(response);
 				// console.log(util.inspect(JSON.parse(body), false, null));
-				
 				console.log("smooch.io:");
 				body = JSON.parse(body);
-				
+
 				console.log(body);
 
 				var forename = body.appUser.givenName;
 				var surname = body.appUser.surname;
 				var client_id = body.appUser.userId;
 
-				client.updateUser(initId, {
-					'first_name': forename
-				});
-				
-				client.updateUser(initId, {
-					'last_name': surname
-				});
+				client.updateUser(initId, 'first_name', forename);
+
+				client.updateUser(initId, 'last_name', surname);
 
 				client.updateUser(initId, {
-					'last_name': surname
-				});
-
-				client.updateUser(initId, {
-					'metadata': {'client_id': client_id}
+					'metadata': {
+						'client_id': client_id
+					}
 				});
 
 				if (role) {
@@ -117,7 +110,7 @@ exports.handle = function (client) {
 					});
 
 					client.addTextResponse("Ok, " + forename + ", I'll check on your " + role.value);
-					
+
 					client.done();
 
 				}
@@ -169,15 +162,15 @@ exports.handle = function (client) {
 				person: "Joe Bloggs",
 				role: client.getFirstEntityWithRole(client.getMessagePart(), 'role').value
 			};
-			
-			var advisor = people.filter(function(person) {
-				
+
+			var advisor = people.filter(function (person) {
+
 				if (person.id === client.getMessagePart().sender.metadata.client_id) {
-				
-				return person.advisor;
-				
+
+					return person.advisor;
+
 				}
-				
+
 			});
 
 
