@@ -59,14 +59,21 @@ exports.handle = function (client) {
 			var messagePart = client.getMessagePart();
 			
 			console.log(JSON.stringify(messagePart));
+			
+			
+			var smoochId = messagePart.sender.remote_id;
+			
+			client.addTextResponse(smoochId);
+			
+			var forename = messagePart.sender.first_name;
+
 
 			if (role) {
 				client.updateConversationState({
 					requstedRole: role,
 				});
 				
-				client.addTextResponse("I see you are interested in your " + role.value);
-				client.addTextResponse("Let me check ...");
+				client.addTextResponse("Ok, " + forename + ", I'll check on your " + role.value);
 
 			}
 		},
