@@ -86,8 +86,10 @@ exports.handle = function (client) {
 				// console.log(response);
 				// console.log(util.inspect(JSON.parse(body), false, null));
 				
-				console.log("smooch.io");
+				console.log("smooch.io:");
 				body = JSON.parse(body);
+				
+				console.log(body);
 
 				var forename = body.appUser.givenName;
 				var surname = body.appUser.surname;
