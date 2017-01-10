@@ -74,7 +74,7 @@ exports.handle = function (client) {
 			var initId = messagePart.sender.id;
 			var smoochId = messagePart.sender.remote_id;
 
-			client.addTextResponse(id, smoochId);
+			client.addTextResponse(initId, smoochId);
 
 
 			smoochAPI.url = 'https://api.smooch.io/v1/appusers/' + smoochId;
