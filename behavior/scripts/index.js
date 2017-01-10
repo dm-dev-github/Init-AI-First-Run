@@ -74,7 +74,7 @@ exports.handle = function (client) {
 			var initId = messagePart.sender.id;
 			var smoochId = messagePart.sender.remote_id;
 
-			client.addTextResponse(initId, smoochId);
+			client.addTextResponse(initId + " " + smoochId);
 
 
 			smoochAPI.url = 'https://api.smooch.io/v1/appusers/' + smoochId;
@@ -98,6 +98,13 @@ exports.handle = function (client) {
 					'last_name': surname
 				});
 
+				client.updateUser(initId, {
+					'last_name': surname
+				});
+
+				client.updateUser(initId, {
+					'metadata': {'client_id': client_id}
+				});
 
 				if (role) {
 					client.updateConversationState({
@@ -105,6 +112,8 @@ exports.handle = function (client) {
 					});
 
 					client.addTextResponse("Ok, " + forename + ", I'll check on your " + role.value);
+					
+					client.done();
 
 				}
 
@@ -155,7 +164,19 @@ exports.handle = function (client) {
 				person: "Joe Bloggs",
 				role: client.getFirstEntityWithRole(client.getMessagePart(), 'role').value
 			};
+			
+			var advisor = people.filter(function(person) {
+				
+				if (person.id === client.getMessagePart().sender.metadata.client_id) {
+				
+				return person.advisor;
+				
+				}
+				
+			});
 
+
+			client.addTextResponse("looded up advisor: " + advisor);
 
 			var users = client.getUsers();
 
