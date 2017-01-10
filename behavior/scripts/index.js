@@ -55,6 +55,10 @@ exports.handle = function (client) {
 		extractInfo: function () {
 
 			var role = client.getFirstEntityWithRole(client.getMessagePart(), 'role');
+			
+			var messagePart = client.getMessagePart();
+			
+			console.log(JSON.stringify(messagePart));
 
 			if (role) {
 				client.updateConversationState({
