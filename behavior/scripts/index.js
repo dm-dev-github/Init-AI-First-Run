@@ -93,6 +93,7 @@ exports.handle = function (client) {
 				client.updateUser(initId, {
 					'first_name': forename
 				});
+				
 				client.updateUser(initId, {
 					'last_name': surname
 				});
