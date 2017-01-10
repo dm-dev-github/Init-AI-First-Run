@@ -1,3 +1,13 @@
+var request = require('request');
+var util = require('util');
+
+
+var smoochAPI = {
+	headers: {
+		'app-token': '9oe7vz42bik4rymee8cd8zgzq'
+	}
+};
+
 // 'use strict';
 exports.handle = function (client) {
 
@@ -55,34 +65,63 @@ exports.handle = function (client) {
 		extractInfo: function () {
 
 			var role = client.getFirstEntityWithRole(client.getMessagePart(), 'role');
-			
+
 			var messagePart = client.getMessagePart();
-			
+
 			console.log(JSON.stringify(messagePart));
-			
-			
+
+
+			var initId = messagePart.sender.id;
 			var smoochId = messagePart.sender.remote_id;
-			
-			client.addTextResponse(smoochId);
-			
-			var forename = messagePart.sender.first_name;
+
+			client.addTextResponse(id, smoochId);
 
 
-			if (role) {
-				client.updateConversationState({
-					requstedRole: role,
+			smoochAPI.url = 'https://api.smooch.io/v1/appusers/' + smoochId;
+
+			request.get(options, function (error, response, body) {
+
+				// console.log(error);
+				// console.log(response);
+				// console.log(util.inspect(JSON.parse(body), false, null));
+				body = JSON.parse(body);
+
+				var forename = body.appUser.givenName;
+				var surname = body.appUser.surname;
+				var client_id = body.appUser.userId;
+
+				client.updateUser(initId, {
+					'first_name': forename
 				});
-				
-				client.addTextResponse("Ok, " + forename + ", I'll check on your " + role.value);
+				client.updateUser(initId, {
+					'last_name': surname
+				});
 
-			}
+
+				if (role) {
+					client.updateConversationState({
+						requstedRole: role,
+					});
+
+					client.addTextResponse("Ok, " + forename + ", I'll check on your " + role.value);
+
+				}
+
+
+
+			});
+
+
+
+
+
 		},
 
 
 		prompt: function () {
 
 			console.log("This means it can't identidy a role");
-			
+
 			var tutorData = {
 				person: "wrong",
 				role: "wrong again"
@@ -109,18 +148,18 @@ exports.handle = function (client) {
 		prompt: function (eventType, payload, data) {
 			// Need to provide weather
 			console.log("Return data to provide_advisor");
-			
+
 
 			var tutorData = {
 				person: "Joe Bloggs",
 				role: client.getFirstEntityWithRole(client.getMessagePart(), 'role').value
 			};
-			
-			
+
+
 			var users = client.getUsers();
-			
+
 			console.log(JSON.stringify(users));
-				
+
 			client.addResponse('provide_advisor', tutorData);
 			client.done();
 
@@ -129,17 +168,17 @@ exports.handle = function (client) {
 
 		}
 	});
-	
-	
-	var handleEvent = function(eventType, payload) {
-    client.addTextResponse('Received event of type: ' + eventType);
-    
-    var payloadText = JSON.stringify(payload);
-    
-    client.addTextResponse('payload ' + payloadText);
-    
-    client.done();
-  };
+
+
+	var handleEvent = function (eventType, payload) {
+			client.addTextResponse('Received event of type: ' + eventType);
+
+			var payloadText = JSON.stringify(payload);
+
+			client.addTextResponse('payload ' + payloadText);
+
+			client.done();
+		};
 
 
 	client.runFlow({
@@ -160,17 +199,6 @@ exports.handle = function (client) {
 };
 
 
-
-
-
-
-/*
-
-			var tutorData = {
-				person: "DM1",
-				role: client.getConversationState().requstedRole.value,
-			};
-*/
 
 
 
