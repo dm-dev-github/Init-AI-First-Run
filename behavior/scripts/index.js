@@ -68,6 +68,7 @@ exports.handle = function (client) {
 
 			var messagePart = client.getMessagePart();
 
+			console.log("init.ai");
 			console.log(JSON.stringify(messagePart));
 
 
@@ -84,6 +85,8 @@ exports.handle = function (client) {
 				// console.log(error);
 				// console.log(response);
 				// console.log(util.inspect(JSON.parse(body), false, null));
+				
+				console.log("smooch.io");
 				body = JSON.parse(body);
 
 				var forename = body.appUser.givenName;
