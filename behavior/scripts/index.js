@@ -79,7 +79,7 @@ exports.handle = function (client) {
 
 			smoochAPI.url = 'https://api.smooch.io/v1/appusers/' + smoochId;
 
-			request.get(options, function (error, response, body) {
+			request.get(smoochAPI, function (error, response, body) {
 
 				// console.log(error);
 				// console.log(response);
